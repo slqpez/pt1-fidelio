@@ -1,0 +1,150 @@
+/*------------------------ Variables -------------------------------- */
+
+:root {
+  --main-color: rgb(62, 126, 71);
+}
+
+/*------------------------ General -------------------------------- */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/*------------------------ Lista de Posts -------------------------------- */
+
+.post {
+  padding: 1em;
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--main-color);
+
+}
+
+.post-content {
+  background-color: rgb(244, 248, 246);
+  padding: .5em;
+  margin-bottom: 1em;
+  position: relative;
+
+}
+.post::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: 190px;
+  left: 26px;
+  width: 1px;
+  margin-top: 15px;
+  box-shadow: 1px 0px 1.5px 0px rgb(199, 199, 199);
+}
+
+
+@media screen and (max-width: 320px) {
+  .post::after  {
+    top: 300px;
+    margin-top: 15px;
+    
+  }
+}
+
+@media screen and (max-width: 414px)  and (min-width:321px){
+  .post::after  {
+    top: 270px;
+    margin-top: 15px;
+    
+  }
+}
+
+@media screen and (max-width: 540px ) and (min-width:415px){
+  .post::after  {
+    top: 210px;
+    margin-top: 15px;
+    
+  }
+}
+
+/*------------------------ Common; Post y comentarios -------------------------------- */
+
+.post-title, .comment-email {
+  color: var(--main-color);
+}
+
+.post-info, .comment-info {
+  font-size: 0.8rem;
+  color: rgb(126, 123, 123);
+}
+
+.post, .comment {
+  max-width: 800px;
+}
+
+
+@media screen and (max-width: 400px) {
+  .post, .comment {
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .post, .comment {
+    max-width: 230px;
+  }
+}
+
+/*------------------------ Lista de comentarios -------------------------------- */
+
+
+.comment {
+  margin: 0 2em 2.5em 2em;
+  position: relative;
+}
+
+.comment::after {
+  height: 70%;
+  left: -22px;
+  top: 60px;
+  content: "";
+  position: absolute;
+  width: 1px;
+  box-shadow: 1px 0px 1.5px 0px rgb(199, 199, 199);
+}
+
+.comment:not(:first-child) {
+  margin-left: 4em;
+}
+
+.comment .btn-thread {
+  color: var(--main-color);
+  border: none;
+  font-weight: bold;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.arrows {
+  display: inline-block;
+  position: absolute;
+  left: -30px;
+  top: 3px;
+}
+
+.comment:first-child::after {
+  display: none
+}
+
+.arrow-up, .arrow-down {
+  display: block;
+  margin-bottom: 0.7em;
+  background: url("./images/arrow.svg") no-repeat center;
+  border: none;
+  height: 15px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.arrow-down {
+  transform: rotate(-180deg);
+}
